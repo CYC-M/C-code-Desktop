@@ -1,0 +1,30 @@
+{
+	"name": "c-code-desktop",
+	"private": true,
+	"type": "module",
+	"version": "0.1.0",
+	"main": "out/main/index.js",
+	"workspaces": [
+		"apps/*"
+	],
+	"scripts": {
+		"dev": "electron-vite dev",
+		"dev:web": "pnpm --filter @c-code/web dev",
+		"build": "pnpm -r build && electron-builder",
+		"build:mac": "electron-builder --mac --arm64 --x64",
+		"build:win": "electron-builder --win --x64",
+		"sync-sidecar": "node scripts/sync-sidecar.mjs",
+		"check": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"electron": "33.0.0",
+		"electron-builder": "25.1.8",
+		"electron-updater": "6.3.9",
+		"electron-vite": "2.3.0",
+		"@vitejs/plugin-react": "4.7.0",
+		"typescript": "5.9.3"
+	},
+	"engines": {
+		"node": ">=22.19.0"
+	}
+}

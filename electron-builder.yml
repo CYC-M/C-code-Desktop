@@ -1,0 +1,26 @@
+appId: com.ccode.desktop
+productName: C-code-Desktop
+artifactName: C-code-Desktop-${version}-${os}-${arch}.${ext}
+directories:
+  output: release
+files:
+  - apps/desktop/dist/**/*
+  - apps/web/dist/**/*
+  - resources/bin/**/*
+mac:
+  category: public.app-category.developer-tools
+  target:
+    - dmg
+    - zip
+  hardenedRuntime: true
+  notarize: true
+win:
+  target:
+    - nsis
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+publish:
+  provider: github
+  owner: CYC-M
+  repo: C-code-Desktop
