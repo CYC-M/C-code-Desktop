@@ -9,7 +9,6 @@
 	],
 	"scripts": {
 		"dev": "electron-vite dev",
-		"dev:web": "pnpm --filter @c-code/web dev",
 		"build": "pnpm -r build && electron-builder",
 		"build:mac": "electron-builder --mac --arm64 --x64",
 		"build:win": "electron-builder --win --x64",

@@ -19,12 +19,13 @@ export default defineConfig({
 		},
 	},
 	renderer: {
-		root: "apps/web",
+		root: "apps/renderer",
+		base: "./",
 		plugins: [react()],
 		build: {
 			rollupOptions: {
 				input: {
-					index: resolve("apps/web/index.html"),
+					index: resolve("apps/renderer/index.html"),
 				},
 			},
 		},

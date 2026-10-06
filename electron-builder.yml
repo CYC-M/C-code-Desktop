@@ -5,7 +5,7 @@ directories:
   output: release
 files:
   - apps/desktop/dist/**/*
-  - apps/web/dist/**/*
+  - apps/renderer/dist/**/*
   - resources/bin/**/*
 mac:
   category: public.app-category.developer-tools

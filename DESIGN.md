@@ -33,7 +33,7 @@
 * 会话：`session{attach/list/fork} -> subscribe{turn/item} -> turn/start{cwd,modelRouting} -> item/{started,delta,completed} -> turn/completed|interrupted`，取消 `cancel{id,target}`。
 * `modelRouting`：`{mode:single|arena|split, candidates:[2-3], perNode:{plan,edit,review}}`，直写 `turn/start` 参数，不经中间封装。
 * `blueprint`：`Workflow{nodes[7种:intent/plan/read/edit/test/review/commit], edges[]}`，节点 `{model,inputs,outputs,diff,logs,cost,approval}`，操作 `get/rerunFromNode/export`，重跑 = `cancel + turn/start{fromNode}`。
-* ID 映射：`turnId <-> nodeId <-> traceId` 放在 `apps/web/src/lib/ids.ts` 一个小函数，不独立成包，方便你随时改。
+* ID 映射：`turnId <-> nodeId <-> traceId` 放在 `apps/renderer/src/lib/ids.ts` 一个小函数，不独立成包，方便你随时改。
 
 ## 4. 前端布局（对标 DSH 图1，顶侧 Tab）
 
@@ -70,12 +70,12 @@ C-code Desktop/
    package.json
    src/main/{index,sidecar,pidfile,deeplink,updater,log,config-store}.ts
    src/preload/index.ts # 白名单直通，不做 rpc 封装
- apps/web/              # Vite React，feature 文件夹扁平
+ apps/renderer/              # Vite React，feature 文件夹扁平
    package.json
    src/{app,sidebar,topbar,tabs-session,tabs-blueprint,tabs-trace,composer,statusbar,models,settings,lib,theme.css}/
 ```
 
-原则：`apps/desktop` 与 `apps/web` 直接调 `pi-protocol v8 / chord`，中间不加 `packages/rpc|ui` 抽象层；共用小函数放 `apps/web/src/lib/` 明文拷贝；新增 Tab/节点类型只加文件夹 + `config/tabs.json` 一行注册，不改核心。
+原则：`apps/desktop` 与 `apps/renderer` 直接调 `pi-protocol v8 / chord`，中间不加 `packages/rpc|ui` 抽象层；共用小函数放 `apps/renderer/src/lib/` 明文拷贝；新增 Tab/节点类型只加文件夹 + `config/tabs.json` 一行注册，不改核心。
 
 
 win-arm64 V1 不打。

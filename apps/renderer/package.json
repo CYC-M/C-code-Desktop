@@ -1,0 +1,22 @@
+{
+	"name": "@c-code/renderer",
+	"private": true,
+	"version": "0.1.0",
+	"type": "module",
+	"scripts": {
+		"build": "vite build"
+	},
+	"dependencies": {
+		"@xterm/xterm": "5.5.0",
+		"browser-whisper": "^1.1.0",
+		"react": "19.1.1",
+		"react-dom": "19.1.1",
+		"reactflow": "11.11.4",
+		"zustand": "5.0.8"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-react": "4.7.0",
+		"typescript": "5.9.3",
+		"vite": "6.3.5"
+	}
+}
